@@ -6,18 +6,23 @@
 #  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cross-arm-android.cmake
 #
 
+# user should specify the ndk path and the openssl's include and lib's path
+set(MY_NDK_PATH /Users/bbg/Library/Android/ndk)
+set(OPENSSL_INCLUDE_DIR /Users/bbg/Workspace/openssl-android/include)
+set(OPENSSL_CRYPTO_LIBRARY /Users/bbg/Workspace/openssl-android/libs/armeabi/libcrypto.so)
+set(OPENSSL_SSL_LIBRARY /Users/bbg/Workspace/openssl-android/libs/armeabi/libssl.so)
 
-set(CROSS_PATH /Users/bbg/Library/Android/ndk/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64)
+########################################################
+# do not modify
+########################################################
+set(CROSS_PATH ${MY_NDK_PATH}/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64)
 
 # Target operating system name.
 #set(CMAKE_SYSTEM_NAME Linux)
 set(CMAKE_SYSTEM_NAME Android)
 set(CMAKE_ANDROID_API 15)
 set(CMAKE_SYSTEM_PROCESSOR arm)
-set(CMAKE_SYSROOT /Users/bbg/Library/Android/ndk/platforms/android-15/arch-arm)
-set(OPENSSL_INCLUDE_DIR /Users/bbg/Workspace/openssl-android/include)
-set(OPENSSL_CRYPTO_LIBRARY /Users/bbg/Workspace/openssl-android/libs/armeabi/libcrypto.so)
-set(OPENSSL_SSL_LIBRARY /Users/bbg/Workspace/openssl-android/libs/armeabi/libssl.so)
+set(CMAKE_SYSROOT ${MY_NDK_PATH}/platforms/android-15/arch-arm)
 
 
 # Name of C compiler.
